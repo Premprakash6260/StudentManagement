@@ -6,4 +6,4 @@ Student management project
 
 You can use the Postman collection provided to test the API:
 
-- [Student Management API.postman_collection.json](./studentmanagement.postman_collection.json)
+- [Student Management API.postman_collection.json](./Postman/studentmanagement.postman_collection.json)

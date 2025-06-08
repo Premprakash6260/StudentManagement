@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "33579b83-361c-43bb-80bb-2c4e45fecde0",
+		"name": "studentmanagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44470007",
+		"_collection_link": "https://ayushjoshi3366.postman.co/workspace/Signimus~cbdbc76d-bdc1-48f9-8a7b-de7ad01b8c80/collection/44470007-33579b83-361c-43bb-80bb-2c4e45fecde0?action=share&source=collection_link&creator=44470007"
+	},
+	"item": [
+		{
+			"name": "admin login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"email\":\"admin\",\r\n   \"password\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0OTM5MDQ3MywiZXhwIjoxNzQ5NDc2ODczfQ.bIIqJ8zJIhpnZ8X1PiSZgtST0VXk_BqQxrUxY0tNmgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Anaya Reddy\",\r\n  \"email\": \"anaya.reddy@example.com\",\r\n  \"gender\": \"Female\",\r\n  \"studentCode\": \"STU105\",\r\n  \"dateOfBirth\": \"29-01-2007\",\r\n  \"addresses\": [\r\n    {\r\n      \"addressType\": \"PERMANENT\",\r\n      \"street\": \"34 Rosewood Avenue\",\r\n      \"city\": \"Chennai\",\r\n      \"state\": \"Tamil Nadu\",\r\n      \"pincode\": \"600001\"\r\n    },\r\n    {\r\n      \"addressType\": \"CORRESPONDENCE\",\r\n      \"street\": \"15 Palm Residency\",\r\n      \"city\": \"Coimbatore\",\r\n      \"state\": \"Tamil Nadu\",\r\n      \"pincode\": \"641001\"\r\n    },\r\n    {\r\n      \"addressType\": \"CURRENT\",\r\n      \"street\": \"67 Work Street\",\r\n      \"city\": \"Bangalore\",\r\n      \"state\": \"Karnataka\",\r\n      \"pincode\": \"560034\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/add-student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"add-student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "student login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentCode\": \"STU105\",\r\n  \"dateOfBirth\": \"29-01-2007\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/student-login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"student-login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-profile-student",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmF5YS5yZWRkeUBleGFtcGxlLmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9TVFVERU5UIiwiaWF0IjoxNzQ5MzkwNjE5LCJleHAiOjE3NDk0NzcwMTl9.D635GEWMo8ffVWfvzzy9qOq4qSO09bze0yhLC3mvAaY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentCode\": \"STU20250607GHI\",\r\n    \"dateOfBirth\": \"05-02-2003\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/student/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-profile-student",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYXJhdi5zaGFybWFAZXhhbXBsZS5jb20iLCJhdXRob3JpdGllcyI6IlJPTEVfU1RVREVOVCIsImlhdCI6MTc0OTM3NjM1OSwiZXhwIjoxNzQ5NDYyNzU5fQ.H3E4uhykhCAwblHEOdAnugITcSWPMgjrfhNFHEJGg_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"aarav.sharma@example.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"fatherName\": \"Rajesh Sharma\",\r\n  \"motherName\": \"Sunita Sharma\",\r\n  \"addresses\": [\r\n    {\r\n      \"id\": 1,\r\n      \"addressType\": \"PERMANENT\",\r\n      \"street\": \"21 Lotus Residency\",\r\n      \"city\": \"Bengaluru\",\r\n      \"state\": \"Karnataka\",\r\n      \"pincode\": \"560076\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"addressType\": \"CORRESPONDENCE\",\r\n      \"street\": \"12 Orchid Tower\",\r\n      \"city\": \"Hyderabad\",\r\n      \"state\": \"Telangana\",\r\n      \"pincode\": \"500081\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/student/v1/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"student",
+						"v1",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get courses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmF5YS5yZWRkeUBleGFtcGxlLmNvbSIsImF1dGhvcml0aWVzIjoiUk9MRV9TVFVERU5UIiwiaWF0IjoxNzQ5MzkwNjE5LCJleHAiOjE3NDk0NzcwMTl9.D635GEWMo8ffVWfvzzy9qOq4qSO09bze0yhLC3mvAaY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"aarav.sharma@example.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"fatherName\": \"Rajesh Sharma\",\r\n  \"motherName\": \"Sunita Sharma\",\r\n  \"addresses\": [\r\n    {\r\n      \"id\": 1,\r\n      \"addressType\": \"PERMANENT\",\r\n      \"street\": \"21 Lotus Residency\",\r\n      \"city\": \"Bengaluru\",\r\n      \"state\": \"Karnataka\",\r\n      \"pincode\": \"560076\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"addressType\": \"CORRESPONDENCE\",\r\n      \"street\": \"12 Orchid Tower\",\r\n      \"city\": \"Hyderabad\",\r\n      \"state\": \"Telangana\",\r\n      \"pincode\": \"500081\"\r\n    }\r\n  ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/student/courses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"courses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-course-admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0OTM5MDQ3MywiZXhwIjoxNzQ5NDc2ODczfQ.bIIqJ8zJIhpnZ8X1PiSZgtST0VXk_BqQxrUxY0tNmgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"DataScience\",\r\n  \"description\": \"In-depth course on data analysis, machine learning, and statistics using Python.\",\r\n  \"type\": \"Technical\",\r\n  \"duration\": 120,\r\n  \"topics\": [\r\n    \"Python\",\r\n    \"NumPy\",\r\n    \"Pandas\",\r\n    \"Data Visualization\",\r\n    \"Statistics\",\r\n    \"Machine Learning\",\r\n    \"Scikit-learn\",\r\n    \"Deep Learning\",\r\n    \"Model Deployment\"\r\n  ]\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/add-course",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"add-course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courses-assign",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0OTM5MDQ3MywiZXhwIjoxNzQ5NDc2ODczfQ.bIIqJ8zJIhpnZ8X1PiSZgtST0VXk_BqQxrUxY0tNmgI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentCode\": \"STU105\",\r\n    \"courseName\": \"Webdev\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/courses-assign",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"courses-assign"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-student-by-name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0OTM3NzU1NiwiZXhwIjoxNzQ5NDYzOTU2fQ.0XyUjxtLxFjsF9rzHmNLnYRdfQMp2q8pJGcwRADPNNQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Webdev\",\r\n  \"description\": \"Comprehensive course covering front-end and back-end web development using modern technologies.\",\r\n  \"type\": \"Technical\",\r\n  \"duration\": 90,\r\n  \"topics\": [\r\n    \"HTML\",\r\n    \"CSS\",\r\n    \"JavaScript\",\r\n    \"React\",\r\n    \"Node.js\",\r\n    \"Express\",\r\n    \"MongoDB\",\r\n    \"REST APIs\",\r\n    \"Deployment\"\r\n  ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/get-student/Anaya%20Reddy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"get-student",
+						"Anaya%20Reddy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-student-by-course",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0OTM3ODIxOSwiZXhwIjoxNzQ5NDY0NjE5fQ.h5B1nwmR4yi6ElGQrZpWRxBpyc7IjTeJRGYygnVfc-s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"studentCode\": \"STU101\",\r\n    \"courseName\": \"Webdev\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/get-by-course/Webdev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"get-by-course",
+						"Webdev"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Leave course",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYXJhdi5zaGFybWFAZXhhbXBsZS5jb20iLCJhdXRob3JpdGllcyI6IlJPTEVfU1RVREVOVCIsImlhdCI6MTc0OTM3ODc2NywiZXhwIjoxNzQ5NDY1MTY3fQ.5HIa3-f1GtOPMGfnn9CcQ9XEaxrZxuVDTl4Wgq_8yeQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"aarav.sharma@example.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"fatherName\": \"Rajesh Sharma\",\r\n  \"motherName\": \"Sunita Sharma\",\r\n  \"addresses\": [\r\n    {\r\n      \"id\": 1,\r\n      \"addressType\": \"PERMANENT\",\r\n      \"street\": \"21 Lotus Residency\",\r\n      \"city\": \"Bengaluru\",\r\n      \"state\": \"Karnataka\",\r\n      \"pincode\": \"560076\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"addressType\": \"CORRESPONDENCE\",\r\n      \"street\": \"12 Orchid Tower\",\r\n      \"city\": \"Hyderabad\",\r\n      \"state\": \"Telangana\",\r\n      \"pincode\": \"500081\"\r\n    }\r\n  ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/student/course/Webdev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						"course",
+						"Webdev"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
